@@ -8,7 +8,7 @@ def main():
     parser.description = "crops a pdf file"
     parser.epilog="unit of crop amount is 1 mm"
     parser.add_argument("--input", required=True, help="a PDF file to read")
-    parser.add_argument("--output", default="cropped.pdf", help="a PDF file to write, default=%(default)s")
+    parser.add_argument("--output", default="out.pdf", help="a PDF file to write, default=%(default)s")
     parser.add_argument("--top", type=float, default=10, help="crop amount from the top, default=%(default)s")
     parser.add_argument("--bottom", type=float, default=10, help="crop amount from the bottom, default=%(default)s")
     parser.add_argument("--left", type=float, default=10, help="crop amount from the left, default=%(default)s")
