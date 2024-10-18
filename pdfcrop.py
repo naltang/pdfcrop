@@ -9,11 +9,11 @@ def main():
     parser.epilog="unit of crop amount is 1 mm"
     parser.add_argument("--input", required=True, help="a PDF file to read")
     parser.add_argument("--output", default="out.pdf", help="a PDF file to write, default=%(default)s")
-    parser.add_argument("--top", type=float, default=10, help="crop amount from the top, default=%(default)s")
-    parser.add_argument("--bottom", type=float, default=10, help="crop amount from the bottom, default=%(default)s")
-    parser.add_argument("--left", type=float, default=10, help="crop amount from the left, default=%(default)s")
-    parser.add_argument("--right", type=float, default=10, help="crop amount from the right, default=%(default)s")
-    parser.add_argument("--gutter", type=float, default=10, help="crop amount for the gutter, default=%(default)s")
+    parser.add_argument("--top", type=float, default=0, help="crop amount from the top, default=%(default)s")
+    parser.add_argument("--bottom", type=float, default=0, help="crop amount from the bottom, default=%(default)s")
+    parser.add_argument("--left", type=float, default=0, help="crop amount from the left, default=%(default)s")
+    parser.add_argument("--right", type=float, default=0, help="crop amount from the right, default=%(default)s")
+    parser.add_argument("--gutter", type=float, default=0, help="crop amount for the gutter, default=%(default)s")
     args = parser.parse_args()
 
     FROM_MILLIMETER_TO_1_OVER_72_INCH = 72 / 25.4
@@ -40,6 +40,9 @@ def main():
         newbox.bottom = page.mediabox.bottom + args.bottom
         page.mediabox = newbox
         writer.add_page(page)
+
+    if reader.metadata is not None:
+        writer.add_metadata(reader.metadata)
 
     f = open(args.output, "wb")
     writer.write(f)
