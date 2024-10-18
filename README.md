@@ -27,12 +27,12 @@ unit of crop amount is 1 mm
 1. The following command crops each page of ``org.pdf`` 20 mm and 15 mm from the left and the top respectively, and stores the cropped file to ``crop.pdf``
 
 ```
-pdfcrop --input org.pdf --output crop.pdf --left 20 --top 15
+python3 pdfcrop.py --input org.pdf --output crop.pdf --left 20 --top 15
 ```
 
 2. The following command crops ``org.pdf`` 10 mm from the left for odd pages, and 10 mm from the right for even pages, and stores the cropped file to ``crop.pdf``
 ```
-pdfcrop --input org.pdf --output crop.pdf --gutter 10
+python3 pdfcrop.py --input org.pdf --output crop.pdf --gutter 10
 ```
 
 ## Dependency
