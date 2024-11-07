@@ -29,10 +29,7 @@ def main():
         newbox.top = page.mediabox.top - args.top
         newbox.bottom = page.mediabox.bottom + args.bottom
         page.mediabox = newbox
-        writer.add_page(page)
-
-    if reader.metadata is not None:
-        writer.add_metadata(reader.metadata)
+        writer.pages[num_page].mediabox = newbox
 
     f = open(args.output, "wb")
     writer.write(f)
