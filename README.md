@@ -38,9 +38,10 @@ python3 pdfcrop.py --input org.pdf --output crop.pdf --gutter 10
 ## Dependency
 needs pypdf
 
-## Limitation
+## Limitations
 1. cannot crop encrypted PDFs.
 2. possible loss of information, such as notes and attached files, etc.
+3. changes PDF version to 1.3 for the output file, due to pypdf limitation.
 
 ## License
 MIT license
